@@ -90,15 +90,14 @@
             this.gridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridView.EnableHeadersVisualStyles = false;
             this.gridView.GridColor = System.Drawing.Color.White;
-            this.gridView.Location = new System.Drawing.Point(16, 15);
-            this.gridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gridView.Location = new System.Drawing.Point(12, 12);
             this.gridView.Name = "gridView";
             this.gridView.ReadOnly = true;
             this.gridView.RowHeadersVisible = false;
             this.gridView.RowHeadersWidth = 51;
             this.gridView.RowTemplate.Height = 40;
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridView.Size = new System.Drawing.Size(1189, 564);
+            this.gridView.Size = new System.Drawing.Size(892, 458);
             this.gridView.TabIndex = 274;
             this.gridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellDoubleClick);
             // 
@@ -237,10 +236,9 @@
             this.but_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_add.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_add.ForeColor = System.Drawing.Color.White;
-            this.but_add.Location = new System.Drawing.Point(425, 632);
-            this.but_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.but_add.Location = new System.Drawing.Point(426, 512);
             this.but_add.Name = "but_add";
-            this.but_add.Size = new System.Drawing.Size(107, 98);
+            this.but_add.Size = new System.Drawing.Size(80, 80);
             this.but_add.TabIndex = 297;
             this.but_add.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.but_add.UseVisualStyleBackColor = false;
@@ -248,14 +246,13 @@
             // 
             // Product
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1285, 756);
+            this.ClientSize = new System.Drawing.Size(964, 614);
             this.Controls.Add(this.but_add);
             this.Controls.Add(this.gridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Product";
             this.Text = "Product";
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();

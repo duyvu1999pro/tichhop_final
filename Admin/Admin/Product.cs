@@ -168,15 +168,7 @@ namespace Admin
         #region search
         private void search_but_Click(object sender, EventArgs e)
         {
-            gridView.DataSource = null;
-            if (search_box.Text == "")
-            {
-                loadGridview();
-            }
-            else
-            {
-                
-            }
+
         }
       
         #endregion
