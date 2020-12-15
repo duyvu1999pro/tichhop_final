@@ -13,6 +13,6 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Models
         public string HoTen { get; set; }
         public string MatKhau { get; set; }
         public string SDT { get; set; }
-        public List<string> Roles { get; set; }
+        public ROLE Role { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace Admin.Model
     public partial class Model1 : DbContext
     {
         public Model1()
-            : base("name=Model11")
+            : base("name=Model12")
         {
         }
 
@@ -18,6 +18,7 @@ namespace Admin.Model
         public virtual DbSet<KHACHHANG> KHACHHANGs { get; set; }
         public virtual DbSet<ROLE> ROLES { get; set; }
         public virtual DbSet<SANPHAM> SANPHAMs { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<TAIKHOANQUANTRI> TAIKHOANQUANTRIs { get; set; }
         public virtual DbSet<TRANGTHAIDONHANG> TRANGTHAIDONHANGs { get; set; }
         public virtual DbSet<VIEWCHITIET> VIEWCHITIETs { get; set; }
@@ -51,8 +52,9 @@ namespace Admin.Model
 
             modelBuilder.Entity<ROLE>()
                 .HasMany(e => e.TAIKHOANQUANTRIs)
-                .WithMany(e => e.ROLES)
-                .Map(m => m.ToTable("USEinROLES").MapLeftKey("IDRole").MapRightKey("MaQT"));
+                .WithRequired(e => e.ROLE1)
+                .HasForeignKey(e => e.Role)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<SANPHAM>()
                 .Property(e => e.MaSP)

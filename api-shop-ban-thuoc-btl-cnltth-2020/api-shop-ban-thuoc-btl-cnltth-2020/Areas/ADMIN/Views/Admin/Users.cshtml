@@ -72,8 +72,8 @@
                         <thead>
                             <tr>
                                 <th data-field="name" data-sortable="true">Mã tài khoản</th>
-                                <th data-field="price" data-sortable="true">Tên</th>
-                                <th data-field="price" data-sortable="true">SĐT</th>
+                                <th data-sortable="true">Tên</th>
+                                <th data-sortable="true">SĐT</th>
                                 <th>Quyền</th>
                                 <th>Hành động</th>
                             </tr>
@@ -87,12 +87,8 @@
                                 <td style="">@it.HoTen</td>
                                 <td style="">@it.SDT</td>
                                 <td>
-                                    @{
-                                        foreach (ROLE i in it.ROLES)
-                                        {
-                                            <span class="label label-danger">@i.RoleName</span>
-                                        }
-                                    }
+
+                                            <span class="label label-danger">@it.ROLE1.RoleName</span>
                                 </td>
                                 <td class="form-group">
                                     <a href="/ADMIN/Admin/Edit_User/@it.MaQT" class="btn btn-primary"><i class="glyphicon glyphicon-pencil"></i></a>

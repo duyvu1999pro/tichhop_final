@@ -1,6 +1,0 @@
-namespace LTTH.Areas.HelpPage.ModelDescriptions
-{
-    public class SimpleTypeModelDescription : ModelDescription
-    {
-    }
-}

@@ -141,7 +141,28 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
         [CustomAuthorize(Roles = "Admin")]
         public ActionResult Add_User()
         {
-            return View();
+            IEnumerable<ROLE> model1 = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44373/api/");
+                //HTTP GET
+                var responseTask = client.GetAsync("role/getlistrole");
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IEnumerable<ROLE>>();
+                    readTask.Wait();
+
+                    model1 = readTask.Result;
+                }
+                else
+                {
+                    model1 = null;
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            return View(model1);
         }
         [HttpPost]
         public async Task<ActionResult> Add_User(TAIKHOANQUANTRI model, string reMatKhau, int ROLE)
@@ -150,22 +171,7 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
             {
                 if (model.MatKhau.CompareTo(reMatKhau) == 0)
                 {
-                    //ROLE role = null;
-                    //using (var client = new HttpClient())
-                    //{
-                    //    client.BaseAddress = new Uri("https://localhost:44373/api/");
-                    //    var responseTask = await client.GetAsync("role/getrole/" + ROLE.ToString());
-                    //    if (responseTask.IsSuccessStatusCode)
-                    //    {
-                    //        role = await responseTask.Content.ReadAsAsync<ROLE>();
-                    //    }
-                    //    else
-                    //        role = null;
-                    //         ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
-                    //}
-                    //model.ROLES = new List<ROLE>();
-                    //model.ROLES.Add(role);
-
+                    model.Role = ROLE;
                     using (var client = new HttpClient())
                     {
                         //gọi api thêm đơn hàng
@@ -185,7 +191,7 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
             }
             catch
             {
-                TempData["Alert"] = "Username đã tồn tại! Vui lòng thử lại!";
+                TempData["Alert"] = "SDT đã tồn tại! Vui lòng thử lại!";
                 return View();
             }
 
@@ -193,8 +199,30 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
         [CustomAuthorize(Roles = "Admin")]
         public ActionResult Edit_User(int ID)
         {
-            TAIKHOANQUANTRI model = null;
+            IEnumerable<ROLE> model1 = null;
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44373/api/");
+                //HTTP GET
+                var responseTask = client.GetAsync("role/getlistrole");
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IEnumerable<ROLE>>();
+                    readTask.Wait();
 
+                    model1 = readTask.Result;
+                }
+                else
+                {
+                    model1 = null;
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                }
+            }
+            ViewBag.role = model1;
+
+            TAIKHOANQUANTRI model = null;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44373/api/");
@@ -206,13 +234,11 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
                 {
                     var readTask = result.Content.ReadAsAsync<TAIKHOANQUANTRI>();
                     readTask.Wait();
-
                     model = readTask.Result;
                 }
                 else
                 {
                     model = null;
-
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                 }
             }
@@ -221,44 +247,28 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
         [HttpPost]
        public async Task<ActionResult> Edit_User(TAIKHOANQUANTRI model, int ROLE)
         {
-            ROLE role = null;
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri("https://localhost:44373/api/");
-                var responseTask = await client.GetAsync("quantri/getRoleTKQT/" + ROLE.ToString());
-                if (responseTask.IsSuccessStatusCode)
-                {
-                    role = await responseTask.Content.ReadAsAsync<ROLE>();
-                }
-                else
-                {
-                    role = null;
-                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
-                }
-            }
+            TAIKHOANQUANTRI obj = null;
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri("https://localhost:44373/api/");
                 var responseTask = await client.GetAsync("quantri/getTKQT/" + model.MaQT.ToString());
                 if (responseTask.IsSuccessStatusCode)
                 {
-                    var obj = await responseTask.Content.ReadAsAsync<TAIKHOANQUANTRI>();
-                    obj.ROLES.Clear();
-                    obj.ROLES.Add(role);
-                    obj.HoTen = model.HoTen;
-                    var putTask = await client.PutAsJsonAsync<TAIKHOANQUANTRI>("danhmuc/updateTKQT", obj);
-                    if (!putTask.IsSuccessStatusCode)
-                        ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                    obj = await responseTask.Content.ReadAsAsync<TAIKHOANQUANTRI>();                   
                 }
                 else
                 {
-                    role = null;
                     ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
                 }
             }
-            
-            
-            //context.SaveChanges();
+            obj.Role = ROLE;
+            using (var client =new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44373/api/");
+                var putTask = await client.PutAsJsonAsync<TAIKHOANQUANTRI>("quantri/updateTKQT", obj);
+                if (!putTask.IsSuccessStatusCode)
+                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+            }
             return RedirectToAction("Users");
 
         }
@@ -579,17 +589,36 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
             return View(model);
         }
         [HttpPost]
-        public async Task<ActionResult> Edit_SanPham(SANPHAM model)
+        public async Task<ActionResult> Edit_SanPham(HttpPostedFileBase file, SANPHAM model)
         {
-            using (var client = new HttpClient())
+            try
             {
-                client.BaseAddress = new Uri("https://localhost:44373/api/");
-                var putTask = await client.PutAsJsonAsync<SANPHAM>("product/updatethuoc", model);
-                if (!putTask.IsSuccessStatusCode)
-                    ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                if (file != null && file.ContentLength > 0)
+                {
+                    // lấy tên tệp tin
+                    var fileName = Path.GetFileName(file.FileName);
+                    // lưu trữ tệp tin vào folder ~/App_Data/uploads
+                    var path = Path.Combine(Server.MapPath("~/Content/assets/img/"), fileName);
+                    file.SaveAs(path);
+                    model.HinhAnh = fileName;
+                    using (var client = new HttpClient())
+                    {
+                        client.BaseAddress = new Uri("https://localhost:44373/api/");
+                        var putTask = await client.PutAsJsonAsync<SANPHAM>("product/updatethuoc", model);
+                        if (!putTask.IsSuccessStatusCode)
+                            ModelState.AddModelError(string.Empty, "Server error. Please contact administrator.");
+                    }
+                    return RedirectToAction("SanPham");
+                }
+                else
+                {
+                    return View("Edit_SanPham",model);
+                }
             }
-
-            return RedirectToAction("SanPham");
+            catch
+            {
+                return View("Edit_SanPham",model);
+            }
         }
         //Đơn Hàng
         [CustomAuthorize(Roles = "Admin,Member")]

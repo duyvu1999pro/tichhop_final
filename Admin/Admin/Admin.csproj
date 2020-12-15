@@ -77,25 +77,28 @@
     </Compile>
     <Compile Include="DBAccess.cs" />
     <Compile Include="Function.cs" />
-    <Compile Include="Model\CHITIETDONHANG.cs" />
     <Compile Include="Customer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\DANHMUC.cs" />
-    <Compile Include="Model\DONHANG.cs" />
-    <Compile Include="Model\KHACHHANG.cs" />
     <Compile Include="Menu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\CHITIETDONHANG.cs" />
+    <Compile Include="Model\DANHMUC.cs" />
+    <Compile Include="Model\DONHANG.cs" />
+    <Compile Include="Model\KHACHHANG.cs" />
     <Compile Include="Model\Model1.cs" />
     <Compile Include="Model\ROLE.cs" />
+    <Compile Include="Model\SANPHAM.cs" />
+    <Compile Include="Model\sysdiagram.cs" />
     <Compile Include="Model\TAIKHOANQUANTRI.cs" />
+    <Compile Include="Model\TRANGTHAIDONHANG.cs" />
     <Compile Include="Model\VIEWCHITIET.cs" />
     <Compile Include="Model\VIEWDONHANG.cs" />
     <Compile Include="Orders.cs">
@@ -110,10 +113,8 @@
     <Compile Include="Product.Designer.cs">
       <DependentUpon>Product.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Account.cs" />
-    <Compile Include="Model\SANPHAM.cs" />
     <Compile Include="TaiKhoanQuanTri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,7 +127,6 @@
     <Compile Include="temp.Designer.cs">
       <DependentUpon>temp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\TRANGTHAIDONHANG.cs" />
     <EmbeddedResource Include="CTProduct.resx">
       <DependentUpon>CTProduct.cs</DependentUpon>
     </EmbeddedResource>

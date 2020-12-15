@@ -9,12 +9,6 @@ namespace Admin.Model
     [Table("TAIKHOANQUANTRI")]
     public partial class TAIKHOANQUANTRI
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public TAIKHOANQUANTRI()
-        {
-            ROLES = new HashSet<ROLE>();
-        }
-
         [Key]
         public int MaQT { get; set; }
 
@@ -29,7 +23,8 @@ namespace Admin.Model
         [StringLength(100)]
         public string MatKhau { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ROLE> ROLES { get; set; }
+        public int Role { get; set; }
+
+        public virtual ROLE ROLE1 { get; set; }
     }
 }

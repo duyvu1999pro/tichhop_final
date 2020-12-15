@@ -89,13 +89,13 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label>Danh Mục</label>
-								<input name="MaDM" type="text" class="form-control">
-								@*<select name="MaDM" class="form-control">
-									@foreach (DANHMUC it in Model)
+								@*<input name="MaDM" type="text" class="form-control">*@
+								<select name="MaDM" class="form-control">
+									@foreach (var it in Model)
 									{
 										<option name="MaDM" value="@it.MaDM">@it.TenDM</option>
 									}
-								</select>*@
+								</select>
 
 							</div>
 							<div class="form-group">

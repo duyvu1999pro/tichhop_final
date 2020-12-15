@@ -7,8 +7,6 @@ using System.Net.Http;
 using System.Web.Http;
 using api_shop_ban_thuoc_btl_cnltth_2020.Models;
 using api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Models;
-using System.Data;
-using FastMember;
 
 namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers.API
 {
@@ -39,30 +37,18 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers.API
         {
             using (MyDBContext context = new MyDBContext())
             {
-                var model = context.TAIKHOANQUANTRIs.Include(b => b.ROLES).ToList();
+                var model = context.TAIKHOANQUANTRIs.Include(b => b.ROLE1).ToList();
                 return model;
             }
         }
-        [HttpGet]
-        [Route("getView")]
-        public IHttpActionResult GetView()
-        {
-            MyDBContext context = new MyDBContext();
-            IEnumerable<TAIKHOANQUANTRI> data = context.TAIKHOANQUANTRIs.ToList();
-            DataTable table = new DataTable();
-            using (var reader = ObjectReader.Create(data, "MaQT", "HoTen"))
-            {
-                table.Load(reader);
-            }
-            return Json(table);
-        }
+
         [HttpGet]
         [Route("searchTKQT/{search}")]
         public IEnumerable<TAIKHOANQUANTRI> searchTKQT(string search)
         {
             using (MyDBContext context = new MyDBContext())
             {
-                return context.TAIKHOANQUANTRIs.Where(X => X.HoTen.Contains(search)).ToList();
+                return context.TAIKHOANQUANTRIs.Where(X => X.HoTen.Contains(search)).Include(b => b.ROLE1).ToList();
             }
         }
 
@@ -94,8 +80,8 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers.API
                     return false;
                 else
                 {
+                    QT.Role = dc.Role;
                     QT.HoTen = dc.HoTen;
-                    QT.ROLES = dc.ROLES;
                     context.SaveChanges();
                     return true;
                 }
@@ -129,38 +115,12 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers.API
             using (MyDBContext context = new MyDBContext())
             {
                 var result = context.TAIKHOANQUANTRIs.Where(a => a.SDT.Equals(acc.SDT) &&
-                                       a.MatKhau.Equals(acc.MatKhau)).Include(b => b.ROLES).FirstOrDefault();
+                                       a.MatKhau==acc.MatKhau).Include(x=>x.ROLE1).FirstOrDefault();
                 if (result != null)
                     return result;
                 else
                     return null;
             }       
-        }
-        [HttpPost]
-        [Route("login1")]
-        public Account Login1(Account acc)
-        {
-            Account ac = new Account();
-            using (MyDBContext context = new MyDBContext())
-            {
-                var result = context.TAIKHOANQUANTRIs.Where(a => a.SDT.Equals(acc.SDT) &&
-                                       a.MatKhau.Equals(acc.MatKhau)).Include(b => b.ROLES).FirstOrDefault();
-                if (result != null)
-                {
-                    ac.MaQT = result.MaQT;
-                    ac.SDT = result.SDT;
-                    ac.MatKhau = result.MatKhau;
-                    ac.HoTen = result.HoTen;
-                    ac.Roles = new List<string>();
-                    foreach (ROLE it in result.ROLES)
-                    {
-                        ac.Roles.Add(it.RoleName);
-                    }
-                    return ac;
-                }
-                else
-                    return null;
-            }
         }
         [HttpGet]
         [Route("getSL")]

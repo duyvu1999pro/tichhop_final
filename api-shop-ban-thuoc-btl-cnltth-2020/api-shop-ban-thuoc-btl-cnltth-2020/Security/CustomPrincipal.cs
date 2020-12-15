@@ -25,7 +25,8 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Security
         public bool IsInRole(string role)
         {
             var roles = role.Split(new char[] { ',' });
-            bool kq = roles.Any(r => this.Account.Roles.Contains(r));
+            var a = this.Account.Role.RoleName;
+            bool kq = roles.Any(r => this.Account.Role.RoleName.Contains(r));
             return kq;
         }
     }

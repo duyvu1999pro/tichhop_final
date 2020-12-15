@@ -57,14 +57,12 @@
 		<div class="col-lg-12">
 			<div class="panel panel-default">
 				<div class="panel-body">
-					<form role="form" method="post" action="/ADMIN/Admin/Edit_SanPham">
+					<form role="form" method="post" enctype="multipart/form-data" action="/ADMIN/Admin/Edit_SanPham">
 						<div class="col-md-6">
-
 							<div class="form-group">
 								<label>Mã thuốc</label>
 								<input type="text" name="MaSP" required class="form-control" value="@Model.MaSP" readonly>
 							</div>
-
 							<div class="form-group">
 								<label>Tên thuốc</label>
 								<input type="text" name="TenSP" required class="form-control" value="@Model.TenSP">
@@ -91,33 +89,35 @@
 							</div>
 						</div>
 
-
-
-						<div class="col-md-6">
-							<div class="form-group">
-								<label>Hình ảnh sản phẩm</label>
-								<br>
-								<div>
-									<img style="text-align: center" width="130" height="180" src="~/Content/Images/@Model.HinhAnh" />
-
-								</div>
-							</div>
-							<div class="form-group">
-								<label>Đơn vị</label>
-								<input type="text" name="DonVi" value="@Model.DonVi" class="form-control">
-							</div>
-							@*<div class="form-group">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Hình ảnh sản phẩm</label>
+                                <br>
+                                <div>
+                                    <img style="text-align: center" width="130" height="180" src="~/Content/Images/@Model.HinhAnh" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Hình ảnh sản phẩm</label>
+                                <input type="file" name="file">
+                                <br>
+                            </div>
+                            <div class="form-group">
+                                <label>Đơn vị</label>
+                                <input type="text" name="DonVi" value="@Model.DonVi" class="form-control">
+                            </div>
+                            @*<div class="form-group">
 								<label>Số Lượng Tồn</label>
 								<input type="number" name="SoLuongTon" value="@Model.SoLuongTon" class="form-control">
 							</div>*@
-							<div class="form-group">
-								<label>Đơn Giá</label>
-								<input type="number" name="GiaBan" value="@Model.GiaBan" class="form-control">
-							</div>
-							<button type="submit" name="sbm" class="btn btn-primary">Cập nhật</button>
-							<button type="reset" class="btn btn-default">Làm mới</button>
+                            <div class="form-group">
+                                <label>Đơn Giá</label>
+                                <input type="number" name="GiaBan" value="@Model.GiaBan" class="form-control">
+                            </div>
+                            <button type="submit" name="sbm" class="btn btn-primary">Cập nhật</button>
+                            <button type="reset" class="btn btn-default">Làm mới</button>
 
-						</div>
+                        </div>
 					</form>
 				</div>
 

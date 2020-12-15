@@ -34,11 +34,12 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers
                         var result = await responseTask.Content.ReadAsAsync<TAIKHOANQUANTRI>();
                         if (result != null)
                         {
-                            acc.Roles = new List<string>();
-                            foreach (ROLE it in result.ROLES)
-                            {
-                                acc.Roles.Add(it.RoleName);
-                            }
+                            acc.Role = new ROLE();
+                            //foreach (ROLE it in result.ROLES)
+                            //{
+                            //    acc.Roles.Add(it.RoleName);
+                            //}
+                            acc.Role = result.ROLE1;
                             acc.HoTen = result.HoTen;
                             acc.MaQT = result.MaQT;
                             Session["Login"] = acc;
