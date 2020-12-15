@@ -13,6 +13,33 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Areas.ADMIN.Controllers.API
     [RoutePrefix("api/quantri")]
     public class TaiKhoanQuanTriController : ApiController
     {
+        [HttpPost]
+        [Route("login1")]
+        public TAIKHOANQUANTRI Login1(TAIKHOANQUANTRI acc)
+        {
+            TAIKHOANQUANTRI ac = new TAIKHOANQUANTRI();
+            using (MyDBContext context = new MyDBContext())
+            {
+                var result = context.TAIKHOANQUANTRIs.Where(a => a.SDT.Equals(acc.SDT) &&
+                                       a.MatKhau.Equals(acc.MatKhau)).FirstOrDefault();
+                if (result != null)
+                {
+                    ac.MaQT = result.MaQT;
+                    ac.SDT = result.SDT;
+                    ac.MatKhau = result.MatKhau;
+                    ac.HoTen = result.HoTen;
+                    ac.Role = result.Role;
+                    //foreach (ROLE it in result.ROLES)
+                    //{
+                    //    ac.Roles.Add(it.RoleName);
+                    //}
+                    return ac;
+                }
+                else
+                    return null;
+            }
+        }
+
         [HttpGet]
         [Route("getTKQT/{id}")]
         public TAIKHOANQUANTRI GetListsDanhMuc(int id)

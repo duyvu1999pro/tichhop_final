@@ -129,6 +129,7 @@ namespace Admin
              {            
                 KHACHHANG kh = new KHACHHANG();
                 kh.MaKH = Convert.ToInt32(id_temp);
+                MessageBox.Show(id_temp);
                 kh.SDT = sdt.Text;
                 kh.HoTen = ten.Text;
                 kh.Email = email.Text;               

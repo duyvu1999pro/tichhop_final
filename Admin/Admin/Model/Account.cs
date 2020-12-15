@@ -5,6 +5,7 @@ namespace Admin
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using Admin.Model;
 
     [Table("Account")]
     public partial class Account
@@ -13,7 +14,7 @@ namespace Admin
         public string HoTen { get; set; }
         public string MatKhau { get; set; }
         public string SDT { get; set; }
-        public List<string> Roles { get; set; }
+        public ROLE Roles { get; set; }
 
     }
 }

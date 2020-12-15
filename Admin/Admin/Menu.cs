@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
+using Admin.Model;
 using Admin.Properties;
 //using System.Net.Http.Formatting.dll;
 
@@ -253,20 +254,20 @@ namespace Admin
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(baseAddress);
-                Account account = new Account
+                TAIKHOANQUANTRI account = new TAIKHOANQUANTRI
                 {
                     SDT = tk.Text.Trim(),
                     MatKhau = mk.Text.Trim()
                 };
-                Account acc = null;
+                TAIKHOANQUANTRI acc = null;
 
-                var resp = await client.PostAsJsonAsync<Account>("quantri/login1", account);
+                var resp = await client.PostAsJsonAsync<TAIKHOANQUANTRI>("quantri/login1", account);
                 if (resp.IsSuccessStatusCode)
                 {
-                    acc = await resp.Content.ReadAsAsync<Account>();
+                    acc = await resp.Content.ReadAsAsync<TAIKHOANQUANTRI>();
                     WELCOME.Text = "Hi, Admin: " + acc.HoTen;
                     
-                    if (acc.Roles[0]=="Admin")                    
+                   if (acc.Role == 1)                    
                         tkqt.Visible = true;
 
                     panel_choice.Enabled = true;
