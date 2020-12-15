@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -19,16 +20,53 @@ namespace Admin
         {
             InitializeComponent();
             loadGridview();
+            loadComboBox();
         }
         #region  load
+        private void loadComboBox()
+        {
+            IEnumerable<ROLE> model = null;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44373/api/");
+                var responseTask = client.GetAsync("role/getlistrole");
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IEnumerable<ROLE>>();
+                    readTask.Wait();
+
+                    model = readTask.Result;
+                }
+                else
+                {
+                    model = Enumerable.Empty<ROLE>();
+                }
+            }
+
+            DataTable table = new DataTable();
+            //table = Function.GetDataTable("danhmuc/getData");
+            table = Function.CreateDataTable(model);
+            // gridView.DataSource = model;
+            Function.pushComboBox(table, comboBox1, "IDRole", "RoleName");
+        }
         private void loadGridview()
         {
             IEnumerable<TAIKHOANQUANTRI> model = Function.GetIEnumerable<TAIKHOANQUANTRI>("quantri/getlistTKQT");
             data = new DataTable();
             data = Function.ToDataTable<TAIKHOANQUANTRI>(model);
+            data.Columns.Add("Quyền", typeof(String));
+            foreach(DataRow it in data.Rows)
+            {
+                if (Convert.ToInt32(it["Role"]) == 1)
+                    it["Quyền"] = "Admin";
+                else
+                    it["Quyền"] = "Member";
+            }    
             if (Function.HasRow(data))
             {
-                gridView.DataSource = model;
+                gridView.DataSource = data;
                 //gridView.DataSource = Function.GetDataTable("quantri/getView");
             }
             
@@ -65,19 +103,25 @@ namespace Admin
             if (e.RowIndex != -1)//not header           
             {
                 EditForm();
-                ten.Text = this.gridView.CurrentRow.Cells[1].Value.ToString();
-                id_temp = this.gridView.CurrentRow.Cells[0].Value.ToString();
+                id_temp= gridView.Rows[e.RowIndex].Cells[0].Value.ToString();
+                ten.Text = gridView.Rows[e.RowIndex].Cells[1].Value.ToString();
+                sdt.Text = gridView.Rows[e.RowIndex].Cells[2].Value.ToString();
+                matkhau.Text= gridView.Rows[e.RowIndex].Cells[3].Value.ToString();
+                comboBox1.SelectedValue = gridView.Rows[e.RowIndex].Cells[4].Value.ToString();
+                //for (int i = 4; i < 10; i++)
+                //    MessageBox.Show(gridView.Rows[e.RowIndex].Cells[i].Value.ToString());
+                //ten.Text = this.gridView.CurrentRow.Cells[1].Value.ToString();
+                //id_temp = this.gridView.CurrentRow.Cells[0].Value.ToString();
 
-                for (int i = 0; i < data.Rows.Count; i++)
-                {
-                    if (data.Rows[i]["MaQT"].ToString() == id_temp)
-                    {
-                       sdt.Text = data.Rows[i]["SDT"].ToString();
-                        matkhau.Text= data.Rows[i]["MatKhau"].ToString();
-
-                        break;
-                    }
-                }
+                //for (int i = 0; i < data.Rows.Count; i++)
+                //{
+                //    if (data.Rows[i]["MaQT"].ToString() == id_temp)
+                //    {
+                //       sdt.Text = data.Rows[i]["SDT"].ToString();
+                //        matkhau.Text= data.Rows[i]["MatKhau"].ToString();
+                //        break;
+                //    }
+                //}
 
             }
         }
@@ -89,6 +133,7 @@ namespace Admin
                 tk.HoTen = ten.Text;
                 tk.MatKhau = matkhau.Text;              
                 tk.SDT = sdt.Text;
+                tk.Role = Convert.ToInt32(comboBox1.SelectedValue.ToString());
                 Function.Add("quantri/addTKQT", tk);
                 clear();
                 loadGridview();
@@ -103,8 +148,9 @@ namespace Admin
                 tk.MaQT= Convert.ToInt32(id_temp);
                 tk.HoTen = ten.Text;
                 tk.MatKhau = matkhau.Text;
-                tk.SDT = sdt.Text;                
-                 Function.Edit("quantri/updateTKQT", tk);
+                tk.SDT = sdt.Text;
+                tk.Role = Convert.ToInt32(comboBox1.SelectedValue.ToString());
+                Function.Edit("quantri/updateTKQT", tk);
                 AddForm();
                 loadGridview();
             }

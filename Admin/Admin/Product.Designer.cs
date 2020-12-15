@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Product));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gridView = new System.Windows.Forms.DataGridView();
             this.Column = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,8 +44,6 @@
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.search_but = new System.Windows.Forms.Button();
-            this.search_box = new System.Windows.Forms.TextBox();
             this.but_add = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
@@ -59,14 +56,14 @@
             this.gridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridView.ColumnHeadersHeight = 60;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -83,23 +80,25 @@
             this.Column10,
             this.Column11,
             this.Column12});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridView.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridView.EnableHeadersVisualStyles = false;
             this.gridView.GridColor = System.Drawing.Color.White;
-            this.gridView.Location = new System.Drawing.Point(12, 12);
+            this.gridView.Location = new System.Drawing.Point(16, 15);
+            this.gridView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gridView.Name = "gridView";
             this.gridView.ReadOnly = true;
             this.gridView.RowHeadersVisible = false;
+            this.gridView.RowHeadersWidth = 51;
             this.gridView.RowTemplate.Height = 40;
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridView.Size = new System.Drawing.Size(892, 458);
+            this.gridView.Size = new System.Drawing.Size(1189, 564);
             this.gridView.TabIndex = 274;
             this.gridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellDoubleClick);
             // 
@@ -107,13 +106,16 @@
             // 
             this.Column.DataPropertyName = "MaSP";
             this.Column.HeaderText = "Mã thuốc";
+            this.Column.MinimumWidth = 6;
             this.Column.Name = "Column";
             this.Column.ReadOnly = true;
+            this.Column.Width = 125;
             // 
             // Column1
             // 
             this.Column1.DataPropertyName = "TenSP";
             this.Column1.HeaderText = "Tên thuốc";
+            this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.Width = 250;
@@ -122,117 +124,106 @@
             // 
             this.Column2.DataPropertyName = "ThanhPhan";
             this.Column2.HeaderText = "Thành phần";
+            this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
+            this.Column2.Width = 125;
             // 
             // Column3
             // 
             this.Column3.DataPropertyName = "CongDung";
             this.Column3.HeaderText = "Công Dụng";
+            this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
+            this.Column3.Width = 125;
             // 
             // Column4
             // 
             this.Column4.DataPropertyName = "LieuLuong";
             this.Column4.HeaderText = "Liều lượng";
+            this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.Visible = false;
+            this.Column4.Width = 125;
             // 
             // Column5
             // 
             this.Column5.DataPropertyName = "GiaBan";
             this.Column5.HeaderText = "Giá bán";
+            this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
             this.Column5.ReadOnly = true;
+            this.Column5.Width = 125;
             // 
             // Column6
             // 
             this.Column6.DataPropertyName = "MaDM";
             this.Column6.HeaderText = "Mã danh mục";
+            this.Column6.MinimumWidth = 6;
             this.Column6.Name = "Column6";
             this.Column6.ReadOnly = true;
+            this.Column6.Width = 125;
             // 
             // Column7
             // 
             this.Column7.DataPropertyName = "DonVi";
             this.Column7.HeaderText = "Đơn vị";
+            this.Column7.MinimumWidth = 6;
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             this.Column7.Visible = false;
+            this.Column7.Width = 125;
             // 
             // Column8
             // 
             this.Column8.DataPropertyName = "DangThuoc";
             this.Column8.HeaderText = "Dạng thuốc";
+            this.Column8.MinimumWidth = 6;
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
+            this.Column8.Width = 125;
             // 
             // Column9
             // 
             this.Column9.DataPropertyName = "HinhAnh";
             this.Column9.HeaderText = "Hình ảnh";
+            this.Column9.MinimumWidth = 6;
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             this.Column9.Visible = false;
+            this.Column9.Width = 125;
             // 
             // Column10
             // 
             this.Column10.DataPropertyName = "MoTa";
             this.Column10.HeaderText = "Mô tả";
+            this.Column10.MinimumWidth = 6;
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
+            this.Column10.Width = 125;
             // 
             // Column11
             // 
             this.Column11.DataPropertyName = "CHITIETDONHANGs";
             this.Column11.HeaderText = "Chi Tiết";
+            this.Column11.MinimumWidth = 6;
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             this.Column11.Visible = false;
+            this.Column11.Width = 125;
             // 
             // Column12
             // 
             this.Column12.DataPropertyName = "DANHMUC";
             this.Column12.HeaderText = "Danh mục";
+            this.Column12.MinimumWidth = 6;
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
             this.Column12.Visible = false;
-            // 
-            // search_but
-            // 
-            this.search_but.BackColor = System.Drawing.Color.White;
-            this.search_but.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.search_but.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.search_but.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.search_but.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
-            this.search_but.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.search_but.Font = new System.Drawing.Font("Courier New", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_but.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(106)))), ((int)(((byte)(155)))));
-            this.search_but.Image = ((System.Drawing.Image)(resources.GetObject("search_but.Image")));
-            this.search_but.Location = new System.Drawing.Point(690, 510);
-            this.search_but.Name = "search_but";
-            this.search_but.Size = new System.Drawing.Size(42, 38);
-            this.search_but.TabIndex = 293;
-            this.search_but.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.search_but.UseVisualStyleBackColor = false;
-            this.search_but.Click += new System.EventHandler(this.search_but_Click);
-            // 
-            // search_box
-            // 
-            this.search_box.BackColor = System.Drawing.Color.White;
-            this.search_box.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.search_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.search_box.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(51)))));
-            this.search_box.Location = new System.Drawing.Point(199, 510);
-            this.search_box.MaxLength = 16;
-            this.search_box.Multiline = true;
-            this.search_box.Name = "search_box";
-            this.search_box.Size = new System.Drawing.Size(485, 38);
-            this.search_box.TabIndex = 303;
-            this.search_box.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Column12.Width = 125;
             // 
             // but_add
             // 
@@ -246,9 +237,10 @@
             this.but_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_add.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_add.ForeColor = System.Drawing.Color.White;
-            this.but_add.Location = new System.Drawing.Point(762, 492);
+            this.but_add.Location = new System.Drawing.Point(425, 632);
+            this.but_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.but_add.Name = "but_add";
-            this.but_add.Size = new System.Drawing.Size(80, 80);
+            this.but_add.Size = new System.Drawing.Size(107, 98);
             this.but_add.TabIndex = 297;
             this.but_add.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.but_add.UseVisualStyleBackColor = false;
@@ -256,26 +248,22 @@
             // 
             // Product
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(964, 614);
-            this.Controls.Add(this.search_box);
+            this.ClientSize = new System.Drawing.Size(1285, 756);
             this.Controls.Add(this.but_add);
-            this.Controls.Add(this.search_but);
             this.Controls.Add(this.gridView);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Product";
             this.Text = "Product";
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button search_but;
-        private System.Windows.Forms.TextBox search_box;
         private System.Windows.Forms.Button but_add;
         private System.Windows.Forms.DataGridView gridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column;

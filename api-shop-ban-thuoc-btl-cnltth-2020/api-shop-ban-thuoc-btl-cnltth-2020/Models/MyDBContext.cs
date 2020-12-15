@@ -8,7 +8,7 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Models
     public partial class MyDBContext : DbContext
     {
         public MyDBContext()
-            : base("name=MyDBContext2")
+            : base("name=MyDBContext")
         {
             this.Configuration.LazyLoadingEnabled = false;
         }

@@ -129,14 +129,13 @@ namespace Admin
              {            
                 KHACHHANG kh = new KHACHHANG();
                 kh.MaKH = Convert.ToInt32(id_temp);
-                MessageBox.Show(id_temp);
                 kh.SDT = sdt.Text;
                 kh.HoTen = ten.Text;
                 kh.Email = email.Text;               
                 kh.Diachi = diachi.Text;
                 Function.Edit("khachhang/updateKhachHang", kh);               
-            AddForm();
-            loadGridview();
+                AddForm();
+                loadGridview();
               }
         }
         private void xoa(object sender, EventArgs e)
