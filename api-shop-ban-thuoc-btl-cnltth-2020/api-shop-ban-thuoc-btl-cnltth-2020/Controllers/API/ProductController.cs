@@ -146,6 +146,7 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
                 Thuoc.HinhAnh = thuoc.HinhAnh;
                 Thuoc.MoTa = thuoc.MoTa;
                 Thuoc.GiaBan = thuoc.GiaBan;
+                Thuoc.CongDung = thuoc.CongDung;
                 context.SaveChanges();
                 return true;
             }
