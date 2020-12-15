@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Forms;
-
+using Admin.Model;
 namespace Admin
 {
     public partial class Orders : Form
@@ -19,16 +21,40 @@ namespace Admin
         {
             InitializeComponent();
             load();
-            
+            loadComboBox();
             
         }
         #region Load
-        private void load()
+        private void loadComboBox()
         {
-              
-            loadComboBox("khachhang/getData", khachhang, "MaKH", "HoTen");
-            loadComboBox("donhang/getTT", trangthai, "MaTT", "TenTT");
-            loadComboBox("donhang/getSP", thuoc, "MaSP", "TenSP");            
+            IEnumerable<TRANGTHAIDONHANG> model = null;
+            using (HttpClient client = new HttpClient())
+            {
+                client.BaseAddress = new Uri("https://localhost:44373/api/");
+                var responseTask = client.GetAsync("TTDH/getlistTTDH");
+                responseTask.Wait();
+                var result = responseTask.Result;
+                if (result.IsSuccessStatusCode)
+                {
+                    var readTask = result.Content.ReadAsAsync<IEnumerable<TRANGTHAIDONHANG>>();
+                    readTask.Wait();
+
+                    model = readTask.Result;
+                }
+                else
+                {
+                    model = Enumerable.Empty<TRANGTHAIDONHANG>();
+                }
+            }
+
+            DataTable table = new DataTable();
+            //table = Function.GetDataTable("danhmuc/getData");
+            table = Function.CreateDataTable(model);
+            // gridView.DataSource = model;
+            Function.pushComboBox(table, trangthai, "MaTT", "TenTT");
+        }
+        private void load()
+        {                 
             gridView.Columns[2].DefaultCellStyle.Format = "dd'/'MM'/'yyyy";
             loadGridview();
         }
@@ -40,9 +66,15 @@ namespace Admin
         }
         private void loadGridview()
         {
+            IEnumerable<VIEWDONHANG> model = Function.GetIEnumerable<VIEWDONHANG>("donhang/getlistviewdonhang");
             data = new DataTable();
-            data = Function.GetDataTable("donhang/getData");         
-            gridView.DataSource = Function.GetDataTable("donhang/getView");
+            data = Function.ToDataTable<VIEWDONHANG>(model);
+            if (Function.HasRow(data))
+            {
+              gridView.DataSource = Function.GetDataTable("donhang/getView");
+            //    gridView.DataSource = data;
+            }
+          
         }
         #endregion
         #region hiệu ứng
@@ -56,11 +88,7 @@ namespace Admin
             email.Clear();
             diachi.Clear();
             sdt.Clear();
-            trangthai.Text = "";
-            dongia.Clear();
-            soluong.Clear();
-            dongia.Clear();
-            thuoc.Text = "";
+          // trangthai.Text = "";         
             while (gridView2.Rows.Count > 0)
             {
                 gridView2.Rows.RemoveAt(0);
@@ -70,7 +98,7 @@ namespace Admin
         {
 
             clear();
-            but_add.Visible = true;
+          
             but_back.Visible = false;
             pan_edit.Visible = false;
         }
@@ -78,7 +106,7 @@ namespace Admin
         {
 
             clear();
-            but_add.Visible = false;
+           
             but_back.Visible = true;
             pan_edit.Visible = true;
         }
@@ -89,9 +117,10 @@ namespace Admin
             if (e.RowIndex != -1)//not header           
             {
                 EditForm();
-               // tenthuoc.Text = this.gridView.CurrentRow.Cells[1].Value.ToString();
+               
                       id_temp = gridView.CurrentRow.Cells[0].Value.ToString();
                 tongtien.Text = gridView.CurrentRow.Cells[3].Value.ToString();
+                khachhang.Text = gridView.CurrentRow.Cells[1].Value.ToString();
                 ngaylap.Value = Convert.ToDateTime(gridView.CurrentRow.Cells[2].Value.ToString());
 
                 for (int i = 0; i < data.Rows.Count; i++)
@@ -99,62 +128,36 @@ namespace Admin
                     if (data.Rows[i]["MaDH"].ToString() == id_temp)
                     {
 
-                       diachi.Text = data.Rows[i]["DiaChi"].ToString();
-                        khachhang.Text = data.Rows[i]["HoTen"].ToString();
-                        ghichu.Text= data.Rows[i]["GhiChu"].ToString();
-                       // tongtien.Text= data.Rows[i]["TongTien"].ToString();
+                       diachi.Text = data.Rows[i]["DiaChi"].ToString();                       
+                        ghichu.Text= data.Rows[i]["GhiChu"].ToString();                       
                         email.Text= data.Rows[i]["Email"].ToString();
-                        sdt.Text= data.Rows[i]["SDT"].ToString();
+                        sdt.Text= data.Rows[i]["SDT"].ToString();                      
+                        trangthai.SelectedValue = data.Rows[i]["MaTT"];    
                         
-                        //trangthai.Text= data.Rows[i]["TrangThai"].ToString();
-
                         break;
                     }
                 }
+                gridView2.DataSource = Function.GetDataTableWithValue("chitietdonhang/getView",id_temp);
+               // System.Windows.MessageBox.Show(trangthai.SelectedValue.ToString());
+
 
             }
         }
-        private void them(object sender, EventArgs e)
-        {
-            if (condition())
-            {
-
-                //SANPHAM sp = new SANPHAM();
-                //sp.MaDM = Convert.ToInt32(kind.SelectedValue.ToString());
-                //sp.TenSP = tenthuoc.Text;
-                //sp.ThanhPhan = thanhphan.Text;
-                //sp.CongDung = congdung.Text;
-                //sp.LieuLuong = lieuluong.Text;
-                //sp.DonVi = donvi.Text;
-                //sp.DangThuoc = dangthuoc.Text;
-                //sp.HinhAnh = urlanh.Text;
-                //sp.MoTa = mota.Text;
-                //sp.GiaBan = Convert.ToInt32(dongia.Text);
-                //Function.Add("product/addthuoc", sp);
-
-                clear();
-                loadGridview();
-            }
-
-        }
+       
         private void sua(object sender, EventArgs e)
         {
             if (condition())
             {
-
-                //SANPHAM sp = new SANPHAM();
-                //sp.MaSP = id_temp;
-                //sp.MaDM = Convert.ToInt32(kind.SelectedValue.ToString());
-                //sp.TenSP = tenthuoc.Text;
-                //sp.ThanhPhan = thanhphan.Text;
-                //sp.CongDung = congdung.Text;
-                //sp.LieuLuong = lieuluong.Text;
-                //sp.DonVi = donvi.Text;
-                //sp.DangThuoc = dangthuoc.Text;
-                //sp.HinhAnh = urlanh.Text;
-                //sp.MoTa = mota.Text;
-                //sp.GiaBan = Convert.ToInt32(dongia.Text);
-                //Function.Edit("product/updatethuoc", sp);
+                DONHANG c = new DONHANG();
+                c.MaDH = Convert.ToInt32(id_temp);
+                c.HoTen = khachhang.Text;
+                c.Email = email.Text;
+                c.GhiChu = ghichu.Text;
+                c.Diachi = diachi.Text;
+                c.SDT = sdt.Text;
+                c.TongTien =Convert.ToInt32(tongtien.Text);               
+                c.TrangThai = Convert.ToInt32(trangthai.SelectedValue.ToString());
+                Function.Edit("donhang/updatedonhang", c);
 
                 AddForm();
                 loadGridview();
@@ -162,7 +165,7 @@ namespace Admin
         }
         private void xoa(object sender, EventArgs e)
         {
-           // Function.Delete("product/delthuoc", id_temp);
+            Function.Delete("donhang/deldonhang", id_temp);
             AddForm();
             loadGridview();
         }
@@ -252,8 +255,9 @@ namespace Admin
 
 
 
+
         #endregion
 
-     
+       
     }
 }

@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using api_shop_ban_thuoc_btl_cnltth_2020.Models;
+using FastMember;
 
 namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
 {
@@ -23,6 +25,7 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
                 return Ok(model);
             }
         }
+       
         //lấy theo mã đơn hàng
         [HttpGet]
         [Route("getCTdonhang/{id}")]
@@ -32,6 +35,19 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
             {
                 return context.CHITIETDONHANGs.Where(X => X.MaDH == id).ToList();
             }
+        }
+        [HttpGet]
+        [Route("getView/{id}")]
+        public IHttpActionResult GetView(int id)
+        {
+            MyDBContext context = new MyDBContext();
+            IEnumerable<VIEWCHITIET> data = context.VIEWCHITIETs.Where(X => X.MaDH == id).ToList();
+            DataTable table = new DataTable();
+            using (var reader = ObjectReader.Create(data,"TenSP","SoLuong","DonGia","ThanhTien"))
+            {
+                table.Load(reader);
+            }
+            return Json(table);
         }
         //
         [HttpGet]

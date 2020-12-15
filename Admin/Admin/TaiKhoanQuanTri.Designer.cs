@@ -40,16 +40,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gridView = new System.Windows.Forms.DataGridView();
-            this.sdt = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.matkhau = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.colum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tenn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sdt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.matkhau = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.pan_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
@@ -59,7 +59,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label1.Location = new System.Drawing.Point(731, 144);
+            this.label1.Location = new System.Drawing.Point(751, 144);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 18);
             this.label1.TabIndex = 326;
@@ -159,7 +159,7 @@
             this.ten.BackColor = System.Drawing.Color.White;
             this.ten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ten.ForeColor = System.Drawing.Color.Black;
-            this.ten.Location = new System.Drawing.Point(519, 104);
+            this.ten.Location = new System.Drawing.Point(539, 104);
             this.ten.Multiline = true;
             this.ten.Name = "ten";
             this.ten.Size = new System.Drawing.Size(390, 30);
@@ -169,7 +169,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            this.panel1.Location = new System.Drawing.Point(472, 0);
+            this.panel1.Location = new System.Drawing.Point(508, 2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(2, 614);
             this.panel1.TabIndex = 319;
@@ -179,7 +179,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label2.Location = new System.Drawing.Point(516, 83);
+            this.label2.Location = new System.Drawing.Point(536, 83);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 18);
             this.label2.TabIndex = 320;
@@ -226,68 +226,9 @@
             this.gridView.RowHeadersVisible = false;
             this.gridView.RowTemplate.Height = 40;
             this.gridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridView.Size = new System.Drawing.Size(431, 590);
+            this.gridView.Size = new System.Drawing.Size(484, 590);
             this.gridView.TabIndex = 318;
             this.gridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellDoubleClick);
-            // 
-            // sdt
-            // 
-            this.sdt.BackColor = System.Drawing.Color.White;
-            this.sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sdt.ForeColor = System.Drawing.Color.Black;
-            this.sdt.Location = new System.Drawing.Point(519, 165);
-            this.sdt.Multiline = true;
-            this.sdt.Name = "sdt";
-            this.sdt.Size = new System.Drawing.Size(175, 30);
-            this.sdt.TabIndex = 328;
-            this.sdt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label3.Location = new System.Drawing.Point(516, 144);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(58, 18);
-            this.label3.TabIndex = 327;
-            this.label3.Text = "Phone";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Admin",
-            "Member"});
-            this.comboBox1.Location = new System.Drawing.Point(734, 164);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(175, 31);
-            this.comboBox1.TabIndex = 337;
-            // 
-            // matkhau
-            // 
-            this.matkhau.BackColor = System.Drawing.Color.White;
-            this.matkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matkhau.ForeColor = System.Drawing.Color.Black;
-            this.matkhau.Location = new System.Drawing.Point(519, 240);
-            this.matkhau.Multiline = true;
-            this.matkhau.Name = "matkhau";
-            this.matkhau.Size = new System.Drawing.Size(175, 30);
-            this.matkhau.TabIndex = 339;
-            this.matkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label4.Location = new System.Drawing.Point(516, 219);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 18);
-            this.label4.TabIndex = 338;
-            this.label4.Text = "Mật khẩu";
             // 
             // colum
             // 
@@ -328,6 +269,65 @@
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
             this.Column3.Visible = false;
+            // 
+            // sdt
+            // 
+            this.sdt.BackColor = System.Drawing.Color.White;
+            this.sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sdt.ForeColor = System.Drawing.Color.Black;
+            this.sdt.Location = new System.Drawing.Point(539, 165);
+            this.sdt.Multiline = true;
+            this.sdt.Name = "sdt";
+            this.sdt.Size = new System.Drawing.Size(175, 30);
+            this.sdt.TabIndex = 328;
+            this.sdt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
+            this.label3.Location = new System.Drawing.Point(536, 144);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(58, 18);
+            this.label3.TabIndex = 327;
+            this.label3.Text = "Phone";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Admin",
+            "Member"});
+            this.comboBox1.Location = new System.Drawing.Point(754, 164);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(175, 31);
+            this.comboBox1.TabIndex = 337;
+            // 
+            // matkhau
+            // 
+            this.matkhau.BackColor = System.Drawing.Color.White;
+            this.matkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.matkhau.ForeColor = System.Drawing.Color.Black;
+            this.matkhau.Location = new System.Drawing.Point(539, 240);
+            this.matkhau.Multiline = true;
+            this.matkhau.Name = "matkhau";
+            this.matkhau.Size = new System.Drawing.Size(175, 30);
+            this.matkhau.TabIndex = 339;
+            this.matkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
+            this.label4.Location = new System.Drawing.Point(536, 219);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(88, 18);
+            this.label4.TabIndex = 338;
+            this.label4.Text = "Mật khẩu";
             // 
             // TaiKhoanQuanTri
             // 

@@ -28,30 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer));
             this.pan_edit = new System.Windows.Forms.Panel();
             this.but_edit = new System.Windows.Forms.Button();
             this.but_del = new System.Windows.Forms.Button();
-            this.but_add = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gridView = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tenn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.ten = new System.Windows.Forms.TextBox();
             this.sdt = new System.Windows.Forms.TextBox();
             this.email = new System.Windows.Forms.TextBox();
-            this.matkhau = new System.Windows.Forms.TextBox();
             this.diachi = new System.Windows.Forms.TextBox();
             this.but_back = new System.Windows.Forms.Button();
             this.search_box = new System.Windows.Forms.TextBox();
             this.search_but = new System.Windows.Forms.Button();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tenn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pan_edit.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView)).BeginInit();
             this.SuspendLayout();
@@ -104,54 +101,23 @@
             this.but_del.UseVisualStyleBackColor = false;
             this.but_del.Click += new System.EventHandler(this.xoa);
             // 
-            // but_add
-            // 
-            this.but_add.BackColor = System.Drawing.Color.White;
-            this.but_add.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.but_add.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.but_add.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.but_add.FlatAppearance.BorderSize = 0;
-            this.but_add.FlatAppearance.MouseOverBackColor = System.Drawing.Color.WhiteSmoke;
-            this.but_add.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.but_add.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.but_add.ForeColor = System.Drawing.Color.White;
-            this.but_add.Image = global::Admin.Properties.Resources.add2;
-            this.but_add.Location = new System.Drawing.Point(648, 416);
-            this.but_add.Name = "but_add";
-            this.but_add.Size = new System.Drawing.Size(141, 139);
-            this.but_add.TabIndex = 300;
-            this.but_add.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.but_add.UseVisualStyleBackColor = false;
-            this.but_add.Click += new System.EventHandler(this.them);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label2.Location = new System.Drawing.Point(517, 75);
+            this.label2.Location = new System.Drawing.Point(517, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(148, 18);
             this.label2.TabIndex = 296;
             this.label2.Text = "Tên khách hàng";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label1.Location = new System.Drawing.Point(726, 141);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 18);
-            this.label1.TabIndex = 294;
-            this.label1.Text = "Mật khẩu";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label6.Location = new System.Drawing.Point(508, 141);
+            this.label6.Location = new System.Drawing.Point(645, 121);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(138, 18);
             this.label6.TabIndex = 292;
@@ -174,27 +140,27 @@
             this.gridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.gridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(9)))), ((int)(((byte)(28)))), ((int)(((byte)(67)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.gridView.ColumnHeadersHeight = 60;
             this.gridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.gridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.tenn});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridView.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(232)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridView.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridView.EnableHeadersVisualStyles = false;
             this.gridView.GridColor = System.Drawing.Color.White;
             this.gridView.Location = new System.Drawing.Point(12, 12);
@@ -207,12 +173,27 @@
             this.gridView.TabIndex = 290;
             this.gridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.gridView_CellDoubleClick);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "MaKH";
+            this.Column1.HeaderText = "Mã";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // tenn
+            // 
+            this.tenn.DataPropertyName = "HoTen";
+            this.tenn.HeaderText = "Tên Khách hàng";
+            this.tenn.Name = "tenn";
+            this.tenn.ReadOnly = true;
+            this.tenn.Width = 300;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(92)))), ((int)(((byte)(89)))));
-            this.label3.Location = new System.Drawing.Point(508, 199);
+            this.label3.Location = new System.Drawing.Point(508, 186);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 18);
             this.label3.TabIndex = 302;
@@ -234,7 +215,7 @@
             this.ten.BackColor = System.Drawing.Color.White;
             this.ten.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ten.ForeColor = System.Drawing.Color.Black;
-            this.ten.Location = new System.Drawing.Point(520, 96);
+            this.ten.Location = new System.Drawing.Point(520, 72);
             this.ten.Multiline = true;
             this.ten.Name = "ten";
             this.ten.Size = new System.Drawing.Size(401, 30);
@@ -246,7 +227,7 @@
             this.sdt.BackColor = System.Drawing.Color.White;
             this.sdt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sdt.ForeColor = System.Drawing.Color.Black;
-            this.sdt.Location = new System.Drawing.Point(520, 162);
+            this.sdt.Location = new System.Drawing.Point(619, 142);
             this.sdt.Multiline = true;
             this.sdt.Name = "sdt";
             this.sdt.Size = new System.Drawing.Size(191, 30);
@@ -258,24 +239,12 @@
             this.email.BackColor = System.Drawing.Color.White;
             this.email.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email.ForeColor = System.Drawing.Color.Black;
-            this.email.Location = new System.Drawing.Point(520, 220);
+            this.email.Location = new System.Drawing.Point(520, 207);
             this.email.Multiline = true;
             this.email.Name = "email";
-            this.email.Size = new System.Drawing.Size(191, 30);
+            this.email.Size = new System.Drawing.Size(401, 30);
             this.email.TabIndex = 307;
             this.email.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // matkhau
-            // 
-            this.matkhau.BackColor = System.Drawing.Color.White;
-            this.matkhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.matkhau.ForeColor = System.Drawing.Color.Black;
-            this.matkhau.Location = new System.Drawing.Point(729, 162);
-            this.matkhau.Multiline = true;
-            this.matkhau.Name = "matkhau";
-            this.matkhau.Size = new System.Drawing.Size(192, 30);
-            this.matkhau.TabIndex = 308;
-            this.matkhau.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // diachi
             // 
@@ -301,7 +270,7 @@
             this.but_back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.but_back.Font = new System.Drawing.Font("Courier New", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.but_back.ForeColor = System.Drawing.Color.White;
-            this.but_back.Location = new System.Drawing.Point(900, 37);
+            this.but_back.Location = new System.Drawing.Point(900, 12);
             this.but_back.Name = "but_back";
             this.but_back.Size = new System.Drawing.Size(52, 38);
             this.but_back.TabIndex = 310;
@@ -345,21 +314,6 @@
             this.search_but.UseVisualStyleBackColor = false;
             this.search_but.Click += new System.EventHandler(this.search_but_Click);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "MaKH";
-            this.Column1.HeaderText = "Mã";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // tenn
-            // 
-            this.tenn.DataPropertyName = "HoTen";
-            this.tenn.HeaderText = "Tên Khách hàng";
-            this.tenn.Name = "tenn";
-            this.tenn.ReadOnly = true;
-            this.tenn.Width = 300;
-            // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,16 +324,13 @@
             this.Controls.Add(this.search_but);
             this.Controls.Add(this.but_back);
             this.Controls.Add(this.diachi);
-            this.Controls.Add(this.matkhau);
             this.Controls.Add(this.email);
             this.Controls.Add(this.sdt);
             this.Controls.Add(this.ten);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pan_edit);
-            this.Controls.Add(this.but_add);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.gridView);
@@ -399,9 +350,7 @@
         private System.Windows.Forms.Panel pan_edit;
         private System.Windows.Forms.Button but_edit;
         private System.Windows.Forms.Button but_del;
-        private System.Windows.Forms.Button but_add;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridView gridView;
@@ -410,7 +359,6 @@
         private System.Windows.Forms.TextBox ten;
         private System.Windows.Forms.TextBox sdt;
         private System.Windows.Forms.TextBox email;
-        private System.Windows.Forms.TextBox matkhau;
         private System.Windows.Forms.TextBox diachi;
         private System.Windows.Forms.Button but_back;
         private System.Windows.Forms.TextBox search_box;

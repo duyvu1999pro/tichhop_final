@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
 using api_shop_ban_thuoc_btl_cnltth_2020.Models;
+using FastMember;
 
 namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
 {
@@ -23,7 +25,23 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
                 return context.VIEWDONHANGs.ToList();
             }
         }
+        [HttpGet]
+        [Route("getView")]
+        public IHttpActionResult GetView()
+        {
+            MyDBContext context = new MyDBContext();
+            IEnumerable<VIEWDONHANG> data = context.VIEWDONHANGs.ToList();
+            DataTable table = new DataTable();
+            using (var reader = ObjectReader.Create(data, "MaDH", "HoTen", "NgayLap", "TongTien"))
+            {
+                table.Load(reader);
+            }
+            return Json(table);
 
+
+
+
+        }
         //lấy tất đơn hàng của khách hàng có mã
         // GET: api/danhmuc
         [HttpGet]
@@ -93,10 +111,15 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
                 MyDBContext context = new MyDBContext();
                 DONHANG DH = context.DONHANGs.Find(donhang.MaDH);
                 if (DH == null) return false;
-                DH.MaKH = donhang.MaKH;
-                DH.NgayLap = donhang.NgayLap;
+                //DH.MaKH = donhang.MaKH;
+                //DH.NgayLap = donhang.NgayLap;
                 DH.TrangThai = donhang.TrangThai;
                 DH.TongTien = donhang.TongTien;
+                DH.GhiChu = donhang.GhiChu;
+                DH.HoTen= donhang.HoTen;
+                DH.Email = donhang.Email;
+                DH.Diachi = donhang.Diachi;
+                DH.SDT = donhang.SDT;
                 context.SaveChanges();
                 return true;
             }

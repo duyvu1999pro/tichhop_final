@@ -61,7 +61,7 @@ namespace Admin
         {
             ten.Clear();
             sdt.Clear();
-            matkhau.Clear();
+          
             email.Clear();
             diachi.Clear();           
         }
@@ -69,16 +69,16 @@ namespace Admin
         {
 
             clear();
-            label1.Text = "Mật khẩu";
-            but_add.Visible = true;
+            
+            
             but_back.Visible = false;
             pan_edit.Visible = false;
         }
         private void EditForm()
         {
-            label1.Text = "Đổi mật khẩu";
+            
             clear();
-            but_add.Visible = false;
+            
             but_back.Visible = true;
             pan_edit.Visible = true;
         }
@@ -98,8 +98,7 @@ namespace Admin
                     if (data.Rows[i]["MaKH"].ToString() == id_temp)
                     {
 
-                        sdt.Text = data.Rows[i]["SDT"].ToString();
-                        matkhau.Text = data.Rows[i]["MatKhau"].ToString();
+                        sdt.Text = data.Rows[i]["SDT"].ToString();                       
                         email.Text = data.Rows[i]["Email"].ToString();
                         diachi.Text = data.Rows[i]["Diachi"].ToString();
                      
@@ -116,8 +115,7 @@ namespace Admin
             KHACHHANG kh = new KHACHHANG();
             kh.SDT = sdt.Text;
             kh.HoTen = ten.Text;
-            kh.Email = email.Text;
-            kh.MatKhau = matkhau.Text;
+            kh.Email = email.Text;            
             kh.Diachi = diachi.Text;
                 Function.Add("khachhang/addkhachhang", kh);                
             clear();
@@ -133,8 +131,7 @@ namespace Admin
                 kh.MaKH = Convert.ToInt32(id_temp);
                 kh.SDT = sdt.Text;
                 kh.HoTen = ten.Text;
-                kh.Email = email.Text;
-                kh.MatKhau = matkhau.Text;
+                kh.Email = email.Text;               
                 kh.Diachi = diachi.Text;
                 Function.Edit("khachhang/updateKhachHang", kh);               
             AddForm();

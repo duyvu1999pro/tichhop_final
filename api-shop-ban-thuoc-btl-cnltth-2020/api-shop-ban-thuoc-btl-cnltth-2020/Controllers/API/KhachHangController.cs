@@ -56,10 +56,6 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
                 table.Load(reader);
             }
             return Json(table);
-
-
-
-
         }
         //lấy theo mã khachhang
         [HttpGet]
