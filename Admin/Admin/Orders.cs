@@ -152,9 +152,9 @@ namespace Admin
                 c.MaDH = Convert.ToInt32(id_temp);
                 c.HoTen = khachhang.Text;
                 c.Email = email.Text;
-                c.GhiChu = ghichu.Text;
+                //c.GhiChu = ghichu.Text;
                 c.Diachi = diachi.Text;
-                c.SDT = sdt.Text;
+                //c.SDT = sdt.Text;
                 c.TongTien =Convert.ToInt32(tongtien.Text);               
                 c.TrangThai = Convert.ToInt32(trangthai.SelectedValue.ToString());
                 Function.Edit("donhang/updatedonhang", c);

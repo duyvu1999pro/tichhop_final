@@ -115,11 +115,11 @@ namespace api_shop_ban_thuoc_btl_cnltth_2020.Controllers.API
                 //DH.NgayLap = donhang.NgayLap;
                 DH.TrangThai = donhang.TrangThai;
                 DH.TongTien = donhang.TongTien;
-                DH.GhiChu = donhang.GhiChu;
+                //DH.GhiChu = donhang.GhiChu;
                 DH.HoTen= donhang.HoTen;
                 DH.Email = donhang.Email;
                 DH.Diachi = donhang.Diachi;
-                DH.SDT = donhang.SDT;
+                //DH.SDT = donhang.SDT;
                 context.SaveChanges();
                 return true;
             }
